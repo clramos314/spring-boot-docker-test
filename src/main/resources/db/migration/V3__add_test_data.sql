@@ -75,7 +75,7 @@ INSERT INTO JOB
              SALARY)
 VALUES      (8,
              'Senior Systems Engineer',
-             'Senior systems engineers manage a company\'s computer systems and networks.',
+             'Senior systems engineers manage a company computer systems and networks.',
              '30500.00');
 
 INSERT INTO JOB
@@ -85,7 +85,7 @@ INSERT INTO JOB
              SALARY)
 VALUES      (9,
              'Information Specialist',
-             'Information specialists are responsible for analyzing and managing a company\'s information databases, such as filing, record-keeping, or stocktaking.',
+             'Information specialists are responsible for analyzing and managing a company information databases, such as filing, record-keeping, or stocktaking.',
              '32000.00');
 
 INSERT INTO JOB
@@ -237,7 +237,7 @@ INSERT INTO PERSON
             ENTRY_DATE,
             JOB_ID)
 VALUES      (12,
-             'Sophie O\'Neill',
+             'Sophie ONeill',
              '2015-06-23',
              4);
 

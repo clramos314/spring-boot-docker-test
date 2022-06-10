@@ -28,15 +28,20 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
     @Override
     public void onApplicationEvent(final ApplicationReadyEvent event) {
 
-        log.info("---> Person and Job salary grouping by Job name:");
+        try {
+            Iterable<Person> people = service.findAll();
 
-        Iterable<Person> people = service.findAll();
+            log.info("---> Person and Job salary grouping by Job name:");
 
-        Map<Job, List<Person>> groupByJobNameMap =
-                StreamSupport.stream(people.spliterator(), false).
-                        collect(Collectors.groupingBy(Person::getJob));
+            Map<Job, List<Person>> groupByJobNameMap =
+                    StreamSupport.stream(people.spliterator(), false).
+                            collect(Collectors.groupingBy(Person::getJob));
 
-        groupByJobNameMap.forEach((k, v) -> System.out.println("Job name : " + k.getJobName() + ", Job salary : " + k.getSalary() + ", People : " + v.stream().map(Person::getName).collect(Collectors.toList())));
+            groupByJobNameMap.forEach((k, v) -> System.out.println("Job name : " + k.getJobName() + ", Job salary : " + k.getSalary() + ", People : " + v.stream().map(Person::getName).collect(Collectors.toList())));
+        }
+        catch (Exception e) {
+            log.warn("---> DB is not yet populated:");
+        }
 
         return;
     }
